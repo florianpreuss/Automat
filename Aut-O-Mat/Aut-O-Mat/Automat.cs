@@ -7,7 +7,7 @@ using Database;
 
 public class Automat
 {
-    private IGUI gui;
+    private IGui gui;
     private IPräferenzrechner präferenzrechner;
     private IErgebnisausgabe ergebnisausgabe;
     private IFavoritenauswahl favoritenauswahl;
@@ -19,7 +19,7 @@ public class Automat
     private IAutobewertung autobewertung;
     private IFeedback feedback;
          
-    public Automat(IGUI gui, IPräferenzrechner präferenzrechner, 
+    public Automat(IGui gui, IPräferenzrechner präferenzrechner, 
         IErgebnisausgabe ergebnisausgabe, IFavoritenauswahl favoritenauswahl, IFragenkatalog fragenkatalog, 
         IAutomarke automarke, IKarosserieform karosserieform, IAutomodell automodell, 
         IBewertungskategorie bewertungskategorie, IAutobewertung autobewertung, IFeedback feedback)
