@@ -12,28 +12,21 @@ public class Automat
     private IErgebnisausgabe ergebnisausgabe;
     private IFavoritenauswahl favoritenauswahl;
     private IFragenkatalog fragenkatalog;
-    private IAutomarke automarke;
-    private IKarosserieform karosserieform;
-    private IAutomodell automodell;
-    private IBewertungskategorie bewertungskategorie;
-    private IAutobewertung autobewertung;
-    private IFeedback feedback;
+    private IAutoRepository autoRepository;
+    private IBewertungRepository bewertungRepository;
+    private IFeedbackRepository feedbackRepository;
          
     public Automat(IGui gui, IPräferenzrechner präferenzrechner, 
         IErgebnisausgabe ergebnisausgabe, IFavoritenauswahl favoritenauswahl, IFragenkatalog fragenkatalog, 
-        IAutomarke automarke, IKarosserieform karosserieform, IAutomodell automodell, 
-        IBewertungskategorie bewertungskategorie, IAutobewertung autobewertung, IFeedback feedback)
+       IAutoRepository autoRepository, IBewertungRepository bewertungRepository, IFeedbackRepository feedbackRepository)
     {
         this.gui = gui;
         this.präferenzrechner = präferenzrechner;
         this.ergebnisausgabe = ergebnisausgabe;
         this.favoritenauswahl = favoritenauswahl;
         this.fragenkatalog = fragenkatalog;
-        this.automarke = automarke;
-        this.karosserieform = karosserieform;
-        this.automodell = automodell;
-        this.bewertungskategorie = bewertungskategorie;
-        this.autobewertung = autobewertung;
-        this.feedback = feedback;
+        this.autoRepository = autoRepository;
+        this.bewertungRepository = bewertungRepository;
+        this.feedbackRepository = feedbackRepository;
     }
 }
