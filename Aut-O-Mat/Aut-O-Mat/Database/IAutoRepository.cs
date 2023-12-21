@@ -1,6 +1,6 @@
 namespace Aut_O_Mat.Database;
 
-public interface IKarosserieform
+public interface IAutoRepository
 {
     
 }

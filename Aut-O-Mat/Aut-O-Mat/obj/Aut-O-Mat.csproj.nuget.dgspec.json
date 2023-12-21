@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {}
+    "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {}
   },
   "projects": {
-    "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {
+    "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj",
+        "projectUniqueName": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj",
         "projectName": "Aut-O-Mat",
-        "projectPath": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj",
-        "packagesPath": "/Users/florianpreuss/.nuget/packages/",
-        "outputPath": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/obj/",
+        "projectPath": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj",
+        "packagesPath": "/Users/davidpfeil/.nuget/packages/",
+        "outputPath": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/florianpreuss/.nuget/NuGet/NuGet.Config"
+          "/Users/davidpfeil/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -42,6 +42,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.14, )"
+            },
+            "Microsoft.Windows.Compatibility": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
