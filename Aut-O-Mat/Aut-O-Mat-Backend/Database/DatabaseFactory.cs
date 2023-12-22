@@ -9,4 +9,19 @@ public class DatabaseFactory
     {
         DbContext.Database.EnsureCreatedAsync();
     }
+
+    public IAutoRepository GetAutoRepository()
+    {
+        throw new InvalidOperationException();
+    }
+
+    public IBewertungRepository GetBewertungRepository()
+    {
+        throw new InvalidOperationException();
+    }
+
+    public IFeedbackRepository GetFeedbackRepository()
+    {
+        throw new InvalidOperationException();
+    }
 }

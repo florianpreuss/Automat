@@ -7,4 +7,8 @@
         <RootNamespace>Aut_O_Mat_Frontend</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Aut-O-Mat-Backend\Aut-O-Mat-Backend.csproj" />
+    </ItemGroup>
+
 </Project>
