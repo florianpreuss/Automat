@@ -5182,19 +5182,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/davidpfeil/.nuget/packages/": {}
+    "/Users/florianpreuss/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/Aut-O-Mat-Test.csproj",
+      "projectUniqueName": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/Aut-O-Mat-Test.csproj",
       "projectName": "Aut-O-Mat-Test",
-      "projectPath": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/Aut-O-Mat-Test.csproj",
-      "packagesPath": "/Users/davidpfeil/.nuget/packages/",
-      "outputPath": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/obj/",
+      "projectPath": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/Aut-O-Mat-Test.csproj",
+      "packagesPath": "/Users/florianpreuss/.nuget/packages/",
+      "outputPath": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat-Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/davidpfeil/.nuget/NuGet/NuGet.Config"
+        "/Users/florianpreuss/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -5206,8 +5206,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {
-              "projectPath": "/Users/davidpfeil/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj"
+            "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj": {
+              "projectPath": "/Users/florianpreuss/RiderProjects/automatiker/Aut-O-Mat/Aut-O-Mat/Aut-O-Mat.csproj"
             }
           }
         }
