@@ -1,6 +1,6 @@
-using Aut_O_Mat.Database.Model;
+using Aut_O_Mat_Backend.Database.Model;
 
-namespace Aut_O_Mat.Database.Impl;
+namespace Aut_O_Mat_Backend.Database.Impl;
 
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;

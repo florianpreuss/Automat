@@ -1,6 +1,6 @@
-using Aut_O_Mat.Database.Impl;
+using Aut_O_Mat_Backend.Database.Impl;
 
-namespace Aut_O_Mat.Database;
+namespace Aut_O_Mat_Backend.Database;
 
 public class DatabaseFactory
 {

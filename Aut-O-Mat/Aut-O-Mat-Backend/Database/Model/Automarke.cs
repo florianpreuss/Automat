@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Aut_O_Mat.Database.Model;
+namespace Aut_O_Mat_Backend.Database.Model;
 
 public class Automarke
 {
