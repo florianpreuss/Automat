@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Aut-O-Mat-Frontend.props" />
-</Project>
