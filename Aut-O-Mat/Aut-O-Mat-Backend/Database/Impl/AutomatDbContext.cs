@@ -5,7 +5,7 @@ namespace Aut_O_Mat_Backend.Database.Impl;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
-public class DbContext : Microsoft.EntityFrameworkCore.DbContext {
+public class AutomatDbContext : Microsoft.EntityFrameworkCore.DbContext {
     public DbSet<Autobewertung> Autobewertung { get; set; }
     public DbSet<Automarke> Automarke { get; set; }
     public DbSet<Automodell> Automodell { get; set; }

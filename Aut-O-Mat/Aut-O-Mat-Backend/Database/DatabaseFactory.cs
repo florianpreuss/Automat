@@ -1,13 +1,13 @@
-using Aut_O_Mat_Backend.Database.Impl;
+using Aut_O_Mat_Backend.Database.Impl;      
 
 namespace Aut_O_Mat_Backend.Database;
 
 public class DatabaseFactory
 {
-    private DbContext DbContext = new DbContext();
+    private AutomatDbContext _automatDbContext = new AutomatDbContext();
     public DatabaseFactory(string databaseFile)
     {
-        DbContext.Database.EnsureCreatedAsync();
+        _automatDbContext.Database.EnsureCreatedAsync();
     }
 
     public IAutoRepository GetAutoRepository()
