@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aut-O-Mat-Test", "Aut-O-Mat-Test\Aut-O-Mat-Test.csproj", "{AE36B5CE-FD84-4EA2-8865-7B710C38A5CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aut-O-Mat-Frontend", "Aut-O-Mat-Frontend\Aut-O-Mat-Frontend.csproj", "{074AAF51-D2CB-47B9-BB7E-BC78A5175C4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aut-O-Mat-UI", "Aut-O-Mat-UI\Aut-O-Mat-UI.csproj", "{074AAF51-D2CB-47B9-BB7E-BC78A5175C4A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aut-O-Mat-Lib", "Aut-O-Mat-Lib\Aut-O-Mat-Lib.csproj", "{9ED8C01D-9459-4C51-8361-F1ED862B92BF}"
 EndProject

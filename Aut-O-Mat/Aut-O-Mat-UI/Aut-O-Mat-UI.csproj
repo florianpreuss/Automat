@@ -4,7 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Aut_O_Mat_Frontend</RootNamespace>
+        <RootNamespace>Aut_O_Mat_UI</RootNamespace>
     </PropertyGroup>
 
 </Project>
