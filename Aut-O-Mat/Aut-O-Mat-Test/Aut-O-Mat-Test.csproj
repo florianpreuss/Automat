@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Aut-O-Mat-Backend\Aut-O-Mat-Backend.csproj" />
+      <ProjectReference Include="..\Aut-O-Mat-Lib\Aut-O-Mat-Lib.csproj" />
     </ItemGroup>
 
 </Project>
