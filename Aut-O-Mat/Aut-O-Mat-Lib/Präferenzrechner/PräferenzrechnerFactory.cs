@@ -4,7 +4,7 @@ public class PräferenzrechnerFactory
 {
     public PräferenzrechnerFactory()
     {
-
+        new PräferenzrechnerFactory();
     }
 
     public IPräferenzrechner GetPräferenzrechner()
