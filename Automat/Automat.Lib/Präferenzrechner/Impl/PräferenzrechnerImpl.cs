@@ -2,52 +2,21 @@ using Automat.Lib.Database.Model;
 
 namespace Automat.Lib.Präferenzrechner.Impl;
 
-public class PräferenzrechnerImpl
+public class PräferenzrechnerImpl: IPräferenzrechner
 {
-    public void FindePerfektesAuto(Autobewertung bewertung, Dictionary<string, int> kundenBewertungen)
+
+    public IDictionary<int, Dictionary<int, double>> GetBewertungsModelle()
     {
-        // Iteriere durch die Bewertungsschritte
-        for (int schritt = 1; schritt <= 10; schritt++)
-        {
-            // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-            //Autobewertung autobewertung = SortiereAutos(Autobewertung, kundenBewertungen);
-
-            // Aktualisiere die Kundenbewertungen basierend auf dem aktuellen Schritt
-            AktualisiereKundenBewertungen(kundenBewertungen, schritt);
-        }
-
-        // Das Auto mit dem höchsten Prozentwert steht jetzt oben in der Liste
-    }
-
-    public Dictionary<string, int> SortiereAutos(Dictionary<string, int> kundenBewertungen)
-    {
-        // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-        //return Autobewertung.O(auto => BerechneProzentwert(auto.Bewertungen, kundenBewertungen)).ToList();
         throw new NotImplementedException();
     }
 
-    public void AktualisiereKundenBewertungen(Dictionary<string, int> kundenBewertungen, int schritt)
+    public void BewertungEinpflegen(int bewertungsKategorie, double nutzerBewertung)
     {
-        //brauchma evtl im Nachhinein falls was geändert werden soll
+        throw new NotImplementedException();
     }
 
-    public double BerechneProzentwert(Dictionary<string, int> autoBewertungen, Dictionary<string, int> kundenBewertungen)
+    public IDictionary<int, double> GetModelsSortedByPreferences()
     {
-        // da werden Prozentsätze basierend auf den Bewertungen berechnet
-        
-        double gesamtDifferenz = 0;
-
-        foreach (var bew in autoBewertungen)
-        {
-            string kriterium = bew.Key;
-            int autoBewertung = bew.Value;
-
-            if (kundenBewertungen.TryGetValue(kriterium, out int kundenBewertung))
-            {
-                gesamtDifferenz += Math.Pow(autoBewertung - kundenBewertung, 2);
-            }
-        }
-
-        return 100 - Math.Sqrt(gesamtDifferenz);
+        throw new NotImplementedException();
     }
 }
