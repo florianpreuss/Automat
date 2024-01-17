@@ -10,7 +10,7 @@ namespace Automat.Lib.Database.Model;
 public partial class Karosserieform
 {
     [Key]
-    public long KarosserieformId { get; set; }
+    public int KarosserieformId { get; set; }
 
     [Column(TypeName = "varchar(16)")]
     public string Name { get; set; } = null!;
@@ -19,5 +19,5 @@ public partial class Karosserieform
     public string? IconUrl { get; set; }
 
     [InverseProperty("Karosserieform")]
-    public virtual ICollection<Automodell> Automodells { get; set; } = new List<Automodell>();
+    public virtual ICollection<Automodell> Automodelle { get; set; } = new List<Automodell>();
 }

@@ -10,7 +10,7 @@ namespace Automat.Lib.Database.Model;
 public partial class Bewertungskategorie
 {
     [Key]
-    public long BewertungskategorieId { get; set; }
+    public int BewertungskategorieId { get; set; }
 
     [Column(TypeName = "varchar(32)")]
     public string Name { get; set; } = null!;
@@ -28,5 +28,5 @@ public partial class Bewertungskategorie
     public string? TagMax { get; set; }
 
     [InverseProperty("Bewertungskategorie")]
-    public virtual ICollection<Autobewertung> Autobewertungs { get; set; } = new List<Autobewertung>();
+    public virtual ICollection<Autobewertung> Autobewertungen { get; set; } = new List<Autobewertung>();
 }

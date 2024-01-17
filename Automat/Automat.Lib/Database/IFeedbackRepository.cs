@@ -6,5 +6,5 @@ namespace Automat.Lib.Database;
 public interface IFeedbackRepository
 {
     public void AddFeedback(Feedback feedback);
-    public SqliteDbContext GetDbContext();
+    public AutomatDbContext GetDbContext();
 }

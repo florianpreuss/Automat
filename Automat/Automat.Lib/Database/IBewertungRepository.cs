@@ -4,5 +4,5 @@ namespace Automat.Lib.Database;
 
 public interface IBewertungRepository
 {
-    public SqliteDbContext GetDbContext();
+    public AutomatDbContext GetDbContext();
 }

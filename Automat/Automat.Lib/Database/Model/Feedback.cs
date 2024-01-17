@@ -10,10 +10,10 @@ namespace Automat.Lib.Database.Model;
 public partial class Feedback
 {
     [Key]
-    public long FeedbackId { get; set; }
+    public int FeedbackId { get; set; }
 
     [Column(TypeName = "integer(2)")]
-    public long? Bewertung { get; set; }
+    public int? Bewertung { get; set; }
 
     [Column(TypeName = "datetime")]
     public byte[]? Zeitpunkt { get; set; }

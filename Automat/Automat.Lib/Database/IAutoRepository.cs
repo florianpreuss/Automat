@@ -4,5 +4,5 @@ namespace Automat.Lib.Database;
 
 public interface IAutoRepository
 {
-    public SqliteDbContext GetDbContext();
+    public AutomatDbContext GetDbContext();
 }

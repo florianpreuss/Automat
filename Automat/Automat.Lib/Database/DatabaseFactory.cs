@@ -4,7 +4,7 @@ namespace Automat.Lib.Database;
 
 public class DatabaseFactory
 {
-    private SqliteDbContext sqliteDbContext = new SqliteDbContext();
+    private AutomatDbContext _automatDbContext = new AutomatDbContext();
 
     public IAutoRepository GetAutoRepository()
     {

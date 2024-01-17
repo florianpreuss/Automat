@@ -10,20 +10,20 @@ namespace Automat.Lib.Database.Model;
 public partial class Autobewertung
 {
     [Key]
-    public long AutobewertungId { get; set; }
+    public int AutobewertungId { get; set; }
 
-    public long AutomodellId { get; set; }
+    public int AutomodellId { get; set; }
 
-    public long BewertungskategorieId { get; set; }
+    public int BewertungskategorieId { get; set; }
 
     [Column(TypeName = "decimal(3, 2)")]
     public byte[] Bewertung { get; set; } = null!;
 
     [ForeignKey("AutomodellId")]
-    [InverseProperty("Autobewertungs")]
+    [InverseProperty("Autobewertungen")]
     public virtual Automodell Automodell { get; set; } = null!;
 
     [ForeignKey("BewertungskategorieId")]
-    [InverseProperty("Autobewertungs")]
+    [InverseProperty("Autobewertungen")]
     public virtual Bewertungskategorie Bewertungskategorie { get; set; } = null!;
 }
