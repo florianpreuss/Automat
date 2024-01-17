@@ -4,13 +4,13 @@ namespace Aut_O_Mat_Lib.Präferenzrechner.Impl;
 
 public class PräferenzrechnerImpl
 {
-    public void FindePerfektesAuto(Autobewertung, Dictionary<string, int> kundenBewertungen)
+    public void FindePerfektesAuto(Autobewertung bewertung, Dictionary<string, int> kundenBewertungen)
     {
         // Iteriere durch die Bewertungsschritte
         for (int schritt = 1; schritt <= 10; schritt++)
         {
             // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-            Autobewertung = SortiereAutos(Autobewertung, kundenBewertungen);
+            //Autobewertung autobewertung = SortiereAutos(Autobewertung, kundenBewertungen);
 
             // Aktualisiere die Kundenbewertungen basierend auf dem aktuellen Schritt
             AktualisiereKundenBewertungen(kundenBewertungen, schritt);
@@ -19,10 +19,11 @@ public class PräferenzrechnerImpl
         // Das Auto mit dem höchsten Prozentwert steht jetzt oben in der Liste
     }
 
-    public void SortiereAutos(Dictionary<string, int> kundenBewertungen)
+    public Dictionary<string, int> SortiereAutos(Dictionary<string, int> kundenBewertungen)
     {
         // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-        return Autobewertung.OrderByDescending(auto => BerechneProzentwert(auto.Bewertungen, kundenBewertungen)).ToList();
+        //return Autobewertung.O(auto => BerechneProzentwert(auto.Bewertungen, kundenBewertungen)).ToList();
+        throw new NotImplementedException();
     }
 
     public void AktualisiereKundenBewertungen(Dictionary<string, int> kundenBewertungen, int schritt)
