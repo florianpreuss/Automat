@@ -6,6 +6,6 @@ public interface IPräferenzrechner
 
     public void BewertungEinpflegen(int bewertungsKategorie, double nutzerBewertung);
     
-    public IDictionary<int, double> GetModelsSortedByPreferences();
+    public IDictionary<int, Dictionary<int, double>> GetModelsSortedByPreferences();
         
 }
