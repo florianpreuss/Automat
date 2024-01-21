@@ -1,15 +1,33 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Web
-@namespace Aut_O_Mat_UI.Pages
+@namespace Automat.UI.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="utf-8"/>
+    <title>Automat</title>
     <base href="~/"/>
     <link href="css/site.css" rel="stylesheet"/>
+    <link href="Automat.UI.styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered"/>
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            background-color: rgba(0,30,49,0.3);
+            background-image: url("img/wallpaper.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: multiply;
+            height: 100%!important;
+        }
+    </style>
 </head>
 <body>
 <component type="typeof(App)" render-mode="ServerPrerendered"/>

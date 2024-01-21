@@ -1,4 +1,4 @@
-namespace Aut_O_Mat_UI.Data;
+namespace Automat.UI.Data;
 
 public class AutomatService
 {

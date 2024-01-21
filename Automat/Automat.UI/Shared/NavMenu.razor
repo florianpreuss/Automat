@@ -1,0 +1,43 @@
+<style>
+  .nav-link {
+    color: #c0bfbf;  
+    cursor: pointer;
+  }
+  
+  .nav-link:hover {
+      color: white;
+  }
+  
+   .nav-link.active {
+      color: white;
+   }
+   
+   .nav-link.active {
+      color: white;
+   }
+   
+   .nav-link.disabled {
+      color: #939292;
+   }
+</style>
+<nav class="navbar justify-content-center" style="background-color: #003d66; color: white">
+  <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Start</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Fragenkatalog">Fragenkatalog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Favoritenauswahl">Favoritenauswahl</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="/Ergebnisanzeige">Ergebnis</a>
+      </li>
+  </ul>
+</nav>
+
+@code {
+   private string title = "Automat";
+   private string logo = "/img/blazorwebsitetemplate.webp";
+}

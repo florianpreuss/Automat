@@ -10,6 +10,29 @@
     z-index: 1000;
 }
 
+h1 {
+    color: white;
+}
+
+h2 {
+    color: #6fbff8;
+}
+
+h3 {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+h5 {
+    color: white;
+}
+#top-bar {
+    background-color: #003D66FF;
+}
+
     #blazor-error-ui .dismiss {
         cursor: pointer;
         position: absolute;
@@ -26,3 +49,4 @@
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+    
