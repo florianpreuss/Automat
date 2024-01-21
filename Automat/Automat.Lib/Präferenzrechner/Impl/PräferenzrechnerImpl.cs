@@ -1,53 +1,45 @@
-using Automat.Lib.Database.Model;
+using Automat.Lib.Database.Data;
+
 
 namespace Automat.Lib.Präferenzrechner.Impl;
 
-public class PräferenzrechnerImpl
+public class PräferenzrechnerImpl: IPräferenzrechner
 {
-    public void FindePerfektesAuto(Autobewertung bewertung, Dictionary<string, int> kundenBewertungen)
+    private AutomatDbContext AutomatDbContext;
+    private IDictionary<int,Dictionary<int,double>> BewertungsAutomodell;
+ 
+    
+    public PräferenzrechnerImpl(AutomatDbContext dbContext)
     {
-        // Iteriere durch die Bewertungsschritte
-        for (int schritt = 1; schritt <= 10; schritt++)
+        AutomatDbContext = dbContext;
+        
+        foreach (var automodell in dbContext.Automodelle)
         {
-            // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-            //Autobewertung autobewertung = SortiereAutos(Autobewertung, kundenBewertungen);
-
-            // Aktualisiere die Kundenbewertungen basierend auf dem aktuellen Schritt
-            AktualisiereKundenBewertungen(kundenBewertungen, schritt);
+            BewertungsAutomodell.Add(automodell.AutomodellId,null);
         }
-
-        // Das Auto mit dem höchsten Prozentwert steht jetzt oben in der Liste
+        
     }
 
-    public Dictionary<string, int> SortiereAutos(Dictionary<string, int> kundenBewertungen)
+    public IDictionary<int, Dictionary<int, double>> GetBewertungsModelle()
     {
-        // Sortiere die Autos basierend auf den aktuellen Kundenbewertungen
-        //return Autobewertung.O(auto => BerechneProzentwert(auto.Bewertungen, kundenBewertungen)).ToList();
+        
         throw new NotImplementedException();
     }
 
-    public void AktualisiereKundenBewertungen(Dictionary<string, int> kundenBewertungen, int schritt)
+    public void BewertungEinpflegen(int bewertungsKategorie, double nutzerBewertung)
     {
-        //brauchma evtl im Nachhinein falls was geändert werden soll
+        throw new NotImplementedException();
     }
 
-    public double BerechneProzentwert(Dictionary<string, int> autoBewertungen, Dictionary<string, int> kundenBewertungen)
+    public IDictionary<int, Dictionary<int, double>> GetModelsSortedByPreferences()
     {
-        // da werden Prozentsätze basierend auf den Bewertungen berechnet
-        
-        double gesamtDifferenz = 0;
+        // Dictionary nach den berechneten Bewertungen(double Werten) der inneren Dictionaries sortieren
+        var sortierteListe = BewertungsAutomodell.ToList();
+        sortierteListe.Sort((pair1, pair2) => pair1.Value.Values.Sum().CompareTo(pair2.Value.Values.Sum()));
 
-        foreach (var bew in autoBewertungen)
-        {
-            string kriterium = bew.Key;
-            int autoBewertung = bew.Value;
+        // Ein neues Dictionary erstellen, basierend auf der sortierten Liste
+        IDictionary<int, Dictionary<int, double>> sortiertesDictionary = sortierteListe.ToDictionary(pair => pair.Key, pair => pair.Value);
 
-            if (kundenBewertungen.TryGetValue(kriterium, out int kundenBewertung))
-            {
-                gesamtDifferenz += Math.Pow(autoBewertung - kundenBewertung, 2);
-            }
-        }
-
-        return 100 - Math.Sqrt(gesamtDifferenz);
+        return sortiertesDictionary;
     }
 }
