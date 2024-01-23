@@ -9,7 +9,6 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\img\autos\" />
-      <Folder Include="wwwroot\img\karosserieformen\" />
     </ItemGroup>
 
     <ItemGroup>
