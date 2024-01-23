@@ -1,0 +1,34 @@
+@using Automat.Lib.Database.Model
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+<div class="col-3">
+    <div class="card text-center justify-content-center p-3">
+        <img src="@CurrentAutomarke.LogoUrl" class="card-img-top center-block mb-3" style="width: 50%" alt="...">
+        <div class="card-body p-0">
+            <h5 class="card-title mb-3">@CurrentAutomarke.Name</h5>
+            <input type="checkbox" class="btn-check" id="@CurrentAutomarke.AutomarkeId-automarke" autocomplete="off" @bind="Ausgewaelt" @onclick="Toggle">
+            <label class="btn btn-outline-secondary" for="@CurrentAutomarke.AutomarkeId-automarke">@ButtonText</label><br>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]  
+    public Automarke CurrentAutomarke { get; set; }
+
+    private string ButtonText = "Auswählen";
+    private bool Ausgewaelt = false;
+    
+    private void Toggle()
+    {
+        Ausgewaelt = !Ausgewaelt;
+        if (Ausgewaelt)
+        {
+            ButtonText = "Ausgewählt";
+        }
+        else
+        {
+            ButtonText = "Auswählen";
+        }
+    }
+}
