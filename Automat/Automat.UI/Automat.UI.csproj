@@ -8,7 +8,103 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\img\" />
+      <Folder Include="wwwroot\img\autos\" />
+      <Folder Include="wwwroot\img\karosserieformen\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_a3.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_a3_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_rs3 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_rs3_sb 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_s3 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a3\audi_s3_sb 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a6\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a6\audi_a6.png.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a6\audi_a6_avant 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a8\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a8\audi_a8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q2\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q2\audi_sq2.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q2\aud_q2.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q4\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q4\audi_q4.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q4\audi_q4_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q8\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q8\audi_q8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q8\audi_q8etron.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q8\audi_q8etron_sb.JPG" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q8\audi_sq8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a1\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a1\audi_a1.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_a5.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_a5_cabrio.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_a5_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_rs5_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_rs5_sb.png.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a5\audi_s5_cabrio.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a7\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_a7\audi_a7.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_etron\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_etron\audi_etrongt.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_etron\audi_rsetrongt.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q3\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q3\audi_q3.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q3\audi_q3_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q3\audi_rsq3.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q3\audi_rsq3_sb.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q5\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q5\audi_q5 2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_q5\audi_sq5.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_r8\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_r8\audi_r8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\audi_r8\audi_r8_cabrio.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_2er\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_2er\bmw_2er.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_2er\bmw_2er_AT.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_2er\bmw_m2.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\bmw_4er.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\bmw_4er_cabrio.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\bmw_i4.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\bmw_m4.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_4er\bmw_m4_cabrio.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_7er\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_7er\bmw_7er.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_7er\bmw_i7.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x1\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x1\bmw_x1.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x1\bmw_x1_m35i.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x3\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x3\bmw_ix3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x3\bmw_x3.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x3\bmw_x3m.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x5\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x5\bmw_x5.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x5\bmw_x5m.jpg.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x7\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\bmw_x7\bmw_x7.jpeg.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf_gtd.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf_gti.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf_r.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf_variant.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_golf\vw_golf_variant_r.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_passat\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_passat\vw_passat.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_taigo\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_taigo\vw_taigo.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_tiguan\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_tiguan\vw_tiguan.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_touran\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\autos\vw_touran\vw_touran.jpeg" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\img\autos\audi_a1\.DS_Store" />
     </ItemGroup>
 
     <ItemGroup>
