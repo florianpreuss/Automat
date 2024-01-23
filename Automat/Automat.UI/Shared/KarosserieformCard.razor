@@ -1,0 +1,33 @@
+@using Automat.Lib.Database.Model
+@using Automat.Lib.Database.Model
+<div class="col-3 mb-3">
+    <div class="card text-center justify-content-center p-3">
+        <img src="@CurrentKarosserieform.IconUrl" class="card-img-top center-block mb-3" style="width: 50%" alt="...">
+        <div class="card-body p-0">
+            <h5 class="card-title mb-3">@CurrentKarosserieform.Name</h5>
+            <input type="checkbox" class="btn-check" id="@CurrentKarosserieform.KarosserieformId-karosserie" autocomplete="off" @bind="Ausgewaelt" @onclick="Toggle">
+            <label class="btn btn-outline-secondary" for="@CurrentKarosserieform.KarosserieformId-karosserie">@ButtonText</label><br>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]  
+    public Karosserieform CurrentKarosserieform { get; set; } 
+    
+    private string ButtonText = "Auswählen";
+    private bool Ausgewaelt = false;
+    
+    private void Toggle()
+    {
+        Ausgewaelt = !Ausgewaelt;
+        if (Ausgewaelt)
+        {
+            ButtonText = "Ausgewählt";
+        }
+        else
+        {
+            ButtonText = "Auswählen";
+        }
+    }
+}
