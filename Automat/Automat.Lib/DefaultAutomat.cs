@@ -1,6 +1,5 @@
 using Automat.Lib.Autovergleich;
 using Automat.Lib.Database;
-using Automat.Lib.Database.Model;
 using Automat.Lib.Präferenzrechner;
 
 namespace Automat.Lib;
