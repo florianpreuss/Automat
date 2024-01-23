@@ -1,6 +1,90 @@
 @page "/Fragenkatalog"
-<h3>Fragenkatalog</h3>
+@using Automat.Lib.Database.Model
+
+
+<div class="row">
+        <h3>Fragen beantworten oder überspringen</h3>
+    </div>
+    @foreach (var bewertungskategorie in Bewertungskategorien)
+    {
+            <Fragestellung CurrentBewertungskategorie="bewertungskategorie" />
+    }
+    <div class="row">
+        <div class="col-6 justify-content-start">
+            <a href="@BackUrl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Zurück</button></a>
+        </div>
+        <div class="col-6 justify-content-end text-end">
+            <a href="/Ergebnis"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Ergebnis</button></a>
+            <a href="/Favoritenauswahl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Favoritenauswahl</button></a>
+            </div>
+    </div>
 
 @code {
+    private ICollection<Bewertungskategorie>? Bewertungskategorien { get; set; }
+
+    [Parameter] public string BackUrl { get; set; } = "/";
     
+    protected override void OnInitialized()
+    {
+        {
+            
+        }
+       this.Bewertungskategorien = new List<Bewertungskategorie>();
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 1,
+           Name = "Personenanzahl",
+           Fragestellung = "Wie viele Personen sollen in deinem Auto Platz haben?",
+           TagMin = "2",
+           TagMax = "8"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 2,
+           Name = "Stauraum",
+           Fragestellung = "Wie viel Stauraum benötigst du?",
+           TagMin = "wenig",
+           TagMax = "sehr viel"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 3,
+           Name = "Leistung",
+           Fragestellung = "Wie wichtig ist dir Leistung?",
+           TagMin = "unwichtig",
+           TagMax = "sehr wichtig"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 4,
+           Name = "Geländetauglichkeit",
+           Fragestellung = "Wie wichtig ist dir Geländetauglichkeit?",
+           TagMin = "unwichtig",
+           TagMax = "sehr wichtig"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+        BewertungskategorieId = 5,
+           Name = "Antriebsart",
+           Fragestellung = "Welchen Antrieb soll dei Auto haben?",
+           TagMin = "unwichtig",
+           TagMax = "sehr wichtig"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 6,
+           Name = "Preis",
+           Fragestellung = "Wie viel möchtest du für dein Auto maximal ausgeben?",
+           TagMin = "30.000",
+           TagMax = "210.000"
+       });
+       Bewertungskategorien.Add(new Bewertungskategorie()
+       {
+           BewertungskategorieId = 7,
+           Name = "Modelljahr",
+           Fragestellung = "Wie modern soll Ihr Auto sein?",
+           TagMin = "alt",
+           TagMax = "sehr modern"
+       });
+    }
 }
