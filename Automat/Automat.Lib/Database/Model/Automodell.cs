@@ -20,7 +20,7 @@ public partial class Automodell
     public int KarosserieformId { get; set; }
 
     [Column(TypeName = "decimal(10, 2)")]
-    public byte[]? Listenpreis { get; set; }
+    public decimal? Listenpreis { get; set; }
 
     [Column(TypeName = "varchar(16)")]
     public string? Kraftstoff { get; set; }
