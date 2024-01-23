@@ -1,0 +1,26 @@
+@using Lib.Database.Model
+<div class="row mx-1 my-4 p-3 bordered-row align-items-center">
+    <div class="col-9">
+        <label for="@CurrentBewertungskategorie" class="form-label"><b>@CurrentBewertungskategorie.Name</b> - @CurrentBewertungskategorie.Fragestellung</label>
+        <input disabled="@IsDisabled" type="range" class="form-range" min="0" max="10" step="1" id="@CurrentBewertungskategorie.BewertungskategorieId">
+        <div class="d-flex justify-content-between text-white">
+            <span>@CurrentBewertungskategorie.TagMin</span>
+            <span>@CurrentBewertungskategorie.TagMax</span>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" @bind="IsDisabled" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Überspringen</label>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]  
+    public Bewertungskategorie CurrentBewertungskategorie { get; set; } 
+    
+    private bool IsDisabled { get; set; }
+
+}

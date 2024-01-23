@@ -1,0 +1,17 @@
+label {
+    color: white;
+}
+
+.bordered-row {
+    border: solid 1px #6fbff8;
+    border-radius: 10px
+}
+
+.sliderticks span {
+    display: flex;
+    justify-content: center;
+    width: 1px;
+    height: 10px;
+    background: #d3d3d3;
+    line-height: 40px;
+}
