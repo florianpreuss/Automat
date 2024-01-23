@@ -1,6 +1,108 @@
 @page "/Favoritenauswahl"
-<h3>Favoritenauswahl</h3>
+@using Automat.Lib.Database.Model
+<div class="row mb-5">
+    <h3 class="mb-3">Favorisierte Automarken auswählen</h3>
+    @foreach (var automarke in Automarken)
+    {
+        <AutomarkeCard CurrentAutomarke="automarke"/>
+    }
+</div>
+<div class="row mb-4">
+    <h3 class="mb-3">Favorisierte Karosserieformen auswählen</h3>
+    @foreach (var karosserieform in Karosserieformen)
+    {
+        <KarosserieformCard CurrentKarosserieform="karosserieform"/>
+    }
+</div>
+<div class="row">
+    <div class="col-6 justify-content-start">
+        <a href="@BackUrl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Zurück</button></a>
+        </div>
+    <div class="col-6 justify-content-end text-end">
+        <a href="/Ergebnis"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Ergebnis</button></a>
+        </div>
+    </div>
 
 @code {
+    private ICollection<Automarke>? Automarken { get; set; }
+    private ICollection<Karosserieform>? Karosserieformen { get; set; }
+
     
+    [Parameter] public string BackUrl { get; set; } = "/Fragenkatalog";
+
+    protected override void OnInitialized()
+    {
+        this.Automarken = new List<Automarke>();
+        Automarken.Add(new Automarke()
+        {
+            AutomarkeId = 1,
+            Name = "BMW",
+            LogoUrl = "./img/automarken/BMW.png",
+        });
+        Automarken.Add(new Automarke()
+        {
+            AutomarkeId = 2,
+            Name = "Volkswagen",
+            LogoUrl = "./img/automarken/Volkswagen.png"
+        });
+        Automarken.Add(new Automarke()
+        {
+            AutomarkeId = 3,
+            Name = "Audi",
+            LogoUrl = "./img/automarken/Audi.png"
+        });
+        
+        
+        this.Karosserieformen = new List<Karosserieform>();
+        
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 1,
+            Name = "SUV",
+            IconUrl = "./img/karosserieformen/suv.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 2,
+            Name = "Kleinwagen",
+            IconUrl = "./img/karosserieformen/kleinwagen.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 3,
+            Name = "Limousine",
+            IconUrl = "./img/karosserieformen/limousine.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 4,
+            Name = "Kombi",
+            IconUrl = "./img/karosserieformen/kombi.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 5,
+            Name = "Coupe",
+            IconUrl = "./img/karosserieformen/coupe.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 6,
+            Name = "Cabriolet",
+            IconUrl = "./img/karosserieformen/cabrio.png"
+        });
+
+        Karosserieformen.Add(new Karosserieform()
+        {
+            KarosserieformId = 7,
+            Name = "Van",
+            IconUrl = "./img/karosserieformen/van.png"
+        });
+    }
 }
+
