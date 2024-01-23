@@ -11,4 +11,8 @@
       <Folder Include="wwwroot\img\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Automat.Lib\Automat.Lib.csproj" />
+    </ItemGroup>
+
 </Project>
