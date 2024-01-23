@@ -2,20 +2,37 @@
 @using Automat.Lib.Database.Model
 <div class="row align-items-center">
     <div class="col-7 p-3">
-        <h1>Aut-O-Mat</h1>
+        <h1 style="outline: none!important;">Aut-O-Mat</h1>
         <h2 class="mb-5">Rosenheim 2024</h2>
     </div>
     <div class="col-5 text-center">
-        <h3>Jetzt Feedback hinterlassen</h3>
+        <h3 class="mb-2">Feedback</h3>
+                <label for="feedbackslider" class="form-label text-white text-start">Gefällt dir der Aut-O-Mat?</label>
+        <input type="range" class="form-range" min="0" max="5" step="1" id="feedbackslider">
+        <div class="d-flex justify-content-between text-white">
+            <span>Sehr unzufrieden</span>
+            <span>Sehr zufrieden</span>
+        </div>
+        <button class="btn mt-2" style="color: white; background-color: #003d66; border-color: #003d66;">Absenden</button>
     </div>
 </div>
 <div class="row align-items-center">
     <h3 class="mb-3">Dein Ergebnis:</h3>
-        @foreach (var automodell in Automodelle)
-        {
-            <Autovorschau CurrentAutomodell="automodell"/>
-        }
+    @foreach (var automodell in Automodelle)
+    {
+        <Autovorschau CurrentAutomodell="automodell"/>
+    }
 </div>
+<div class="row mt-3">
+    <div class="col-6 text-start">
+        <a href="/Fragenkatalog"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66; margin-right: 10px">Fragenkatalog</button></a>
+        <a href="/Favoritenauswahl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Favoritenauswahl</button></a>
+    </div>
+    <div class="col-6 text-end">
+        <button class="btn btn-lg" style="color: white; background-color: green; border-color: green;">Neu laden</button>
+    </div>
+</div>
+
 @code {
     private ICollection<Automodell>? Automodelle { get; set; }
 
