@@ -1,0 +1,67 @@
+@page "/Ergebnisanzeige"
+@using Automat.Lib.Database.Model
+<div class="row align-items-center">
+    <div class="col-7 p-3">
+        <h1>Aut-O-Mat</h1>
+        <h2 class="mb-5">Rosenheim 2024</h2>
+    </div>
+    <div class="col-5 text-center">
+        <h3>Jetzt Feedback hinterlassen</h3>
+    </div>
+</div>
+<div class="row align-items-center">
+    <h3 class="mb-3">Dein Ergebnis:</h3>
+        @foreach (var automodell in Automodelle)
+        {
+            <Autovorschau CurrentAutomodell="automodell"/>
+        }
+</div>
+@code {
+    private ICollection<Automodell>? Automodelle { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Automodelle = new List<Automodell>();
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 4,
+            Name = "BMW M2 Coupé",
+            BildUrl = "./img/autos/bmw_2er/bmw_m2.jpeg"
+        });
+
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 12,
+            Name = "BMW M3 Touring",
+            BildUrl = "./img/autos/bmw_3er/bmw_m3_touring.jpeg"
+        });
+
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 53,
+            Name = "VW Golf GTI",
+            BildUrl = "./img/autos/vw_golf/vw_golf_gti.jpeg"
+        });
+
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 68,
+            Name = "VW Touareg",
+            BildUrl = "./img/autos/vw_touareg/vw_touareg.jpeg"
+        });
+
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 84,
+            Name = "Audi RS 4 Avant",
+            BildUrl = "./img/autos/audi_a4/audi_rs4.jpg"
+        });
+
+        Automodelle.Add(new Automodell()
+        {
+            AutomodellId = 117,
+            Name = "Audi SQ8",
+            BildUrl = "./img/autos/audi_q8/audi_sq8.jpeg"
+        });
+    }
+}
