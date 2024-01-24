@@ -1,11 +1,19 @@
+using System.Collections.Specialized;
+using Automat.Lib.Database.Model;
+
 namespace Automat.Lib.Präferenzrechner;
 
 public interface IPräferenzrechner
 {
-    public IDictionary<int, Dictionary<int, Double>> GetBewertungsModelle();
+    public IDictionary<Automodell, Dictionary<Bewertungskategorie, decimal>> GetBewertungsModelle();
+    public IDictionary<Automodell, int> GetFavoritenÜbereinstimmungen();
 
-    public void BewertungEinpflegen(int bewertungsKategorie, double nutzerBewertung);
+    public void BewertungHinzufügen(Bewertungskategorie bewertungskategorie, decimal nutzerBewertung);
+    public void FavoritenHinzufügen(ICollection<Automarke> automarken, ICollection<Karosserieform> karosserieformen);
     
-    public IDictionary<int, Dictionary<int, double>> GetModelsSortedByPreferences();
-        
+    public IDictionary<Automodell, Dictionary<Bewertungskategorie, decimal>> GetModelsSortedByPreferences();
+
+    public IDictionary<Automodell, decimal>  GetErgebnisAutosSorted();
+
+    public void ResetRechner();
 }

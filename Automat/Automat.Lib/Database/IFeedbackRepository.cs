@@ -5,6 +5,6 @@ namespace Automat.Lib.Database;
 
 public interface IFeedbackRepository
 {
-    public void AddFeedback(Feedback feedback);
+    public bool AddFeedback(Feedback feedback);
     public AutomatDbContext GetDbContext();
 }

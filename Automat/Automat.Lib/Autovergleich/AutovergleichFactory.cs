@@ -1,4 +1,6 @@
+using Automat.Lib.Autovergleich.Impl;
 using Automat.Lib.Database;
+using Automat.Lib.Database.Impl;
 using Automat.Lib.Präferenzrechner;
 
 namespace Automat.Lib.Autovergleich;
@@ -20,16 +22,16 @@ public class AutovergleichFactory
 
     public IFragenkatalog GetFragenkatalog()
     {
-        throw new NotImplementedException();
+        return new FragenkatalogImpl(Präferenzrechner, BewertungRepository);
     }
     
     public IFavoritenauswahl GetFavoritenauswahl()
     {
-        throw new NotImplementedException();
+        return new FavoritenauswahlImpl(Präferenzrechner, AutoRepository);
     }
 
     public IErgebnisanzeige GetErgebnisanzeige()
     {
-        throw new NotImplementedException();
+        return new ErgebnisanzeigeImpl(Präferenzrechner, FeedbackRepository);
     }
 }
