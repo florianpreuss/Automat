@@ -16,7 +16,7 @@ public partial class Bewertungskategorie
     public string Name { get; set; } = null!;
 
     [Column(TypeName = "decimal(3, 2)")]
-    public byte[] Gewichtung { get; set; } = null!;
+    public decimal Gewichtung { get; set; }
 
     [Column(TypeName = "varchar(255)")]
     public string Fragestellung { get; set; } = null!;

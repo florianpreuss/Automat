@@ -50,4 +50,9 @@ public class DatabaseFactory
     {
         return FeedbackRepository;
     }
+
+    public AutomatDbContext GetAutomatDbContext()
+    {
+        return AutomatDbContext;
+    }
 }

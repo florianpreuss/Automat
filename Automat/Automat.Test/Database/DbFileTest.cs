@@ -19,8 +19,6 @@ public class DbFileTest
             .Options;
     } 
     
-    
-        
     [TestMethod]
     public void InitializeDatabaseAndReadData()
     {
@@ -33,6 +31,5 @@ public class DbFileTest
             Autobewertung autobewertung = context.Autobewertungen.Include(abw => abw.Automodell).First(abw => abw.AutobewertungId == 10);
             Assert.AreEqual(autobewertung.Automodell.Name, "BMW 318i Touring");
         }
-
     }
 }

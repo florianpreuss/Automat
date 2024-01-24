@@ -11,8 +11,6 @@ public interface IPräferenzrechner
     public void BewertungHinzufügen(Bewertungskategorie bewertungskategorie, decimal nutzerBewertung);
     public void FavoritenHinzufügen(ICollection<Automarke> automarken, ICollection<Karosserieform> karosserieformen);
     
-    public IDictionary<Automodell, Dictionary<Bewertungskategorie, decimal>> GetModelsSortedByPreferences();
-
     public IDictionary<Automodell, decimal>  GetErgebnisAutosSorted();
 
     public void ResetRechner();

@@ -79,18 +79,7 @@ public class PräferenzrechnerImpl: IPräferenzrechner
         }
         return 1.0m - abweichung;
     }
-
-    public IDictionary<Automodell, Dictionary<Bewertungskategorie, decimal>> GetModelsSortedByPreferences()
-    {
-        var sortierteListe = BewertungsAutomodelle.ToList();
-        sortierteListe.Sort((pair1, pair2) => pair1.Value.Values.Average().CompareTo(pair2.Value.Values.Average()));
-
-        // Ein neues Dictionary erstellen, basierend auf der sortierten Liste
-        IDictionary<Automodell, Dictionary<Bewertungskategorie, decimal>> sortiertesDictionary = sortierteListe.ToDictionary(pair => pair.Key, pair => pair.Value);
-
-        return sortiertesDictionary;
-    }
-
+    
     public IDictionary<Automodell, decimal> GetErgebnisAutosSorted()
     {
         IDictionary<Automodell, decimal> Uebereinstimmungsraten = new Dictionary<Automodell, decimal>();
