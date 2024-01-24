@@ -17,7 +17,7 @@ public partial class Autobewertung
     public int BewertungskategorieId { get; set; }
 
     [Column(TypeName = "decimal(3, 2)")]
-    public byte[] Bewertung { get; set; } = null!;
+    public decimal Bewertung { get; set; }
 
     [ForeignKey("AutomodellId")]
     [InverseProperty("Autobewertungen")]

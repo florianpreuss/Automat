@@ -1,5 +1,8 @@
 @using Automat.Lib.Database.Model
+@using Automat.UI.Services
 @using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject AutomatService _AutomatService
+
 <div class="col-3">
     <div class="card text-center justify-content-center p-3">
         <img src="@CurrentAutomarke.LogoUrl" class="card-img-top center-block mb-3" style="width: 50%" alt="...">
@@ -18,16 +21,27 @@
 
     private string ButtonText = "Auswählen";
     private bool Ausgewaelt = false;
+
+    protected override void OnInitialized()
+    {
+        if (_AutomatService.getAutomat().GetFavoritenauswahl().GetBenutzerMarken().Contains(CurrentAutomarke))
+        {
+            Ausgewaelt = true;
+            ButtonText = "Ausgewählt";
+        }
+    }
     
     private void Toggle()
     {
         Ausgewaelt = !Ausgewaelt;
         if (Ausgewaelt)
         {
+            _AutomatService.getAutomat().GetFavoritenauswahl().AddBenutzerMarke(CurrentAutomarke);
             ButtonText = "Ausgewählt";
         }
         else
         {
+            _AutomatService.getAutomat().GetFavoritenauswahl().RemoveBenutzerMarke(CurrentAutomarke);
             ButtonText = "Auswählen";
         }
     }

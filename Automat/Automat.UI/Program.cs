@@ -3,7 +3,7 @@ using Automat.UI.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-//builder.Services.AddSingleton<AutomatService>();
+builder.Services.AddScoped<AutomatService>();
 
 var app = builder.Build();
 

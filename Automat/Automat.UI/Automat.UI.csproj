@@ -110,4 +110,10 @@
       <ProjectReference Include="..\Automat.Lib\Automat.Lib.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="AutomatDbSqlite.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

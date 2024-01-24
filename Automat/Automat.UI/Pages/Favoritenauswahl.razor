@@ -1,5 +1,7 @@
 @page "/Favoritenauswahl"
 @using Automat.Lib.Database.Model
+@using Automat.UI.Services
+@inject AutomatService _AutomatService
 <div class="row mb-5">
     <h3 class="mb-3">Favorisierte Automarken auswählen</h3>
     @foreach (var automarke in Automarken)
@@ -32,77 +34,9 @@
 
     protected override void OnInitialized()
     {
-        this.Automarken = new List<Automarke>();
-        Automarken.Add(new Automarke()
-        {
-            AutomarkeId = 1,
-            Name = "BMW",
-            LogoUrl = "./img/automarken/BMW.png",
-        });
-        Automarken.Add(new Automarke()
-        {
-            AutomarkeId = 2,
-            Name = "Volkswagen",
-            LogoUrl = "./img/automarken/Volkswagen.png"
-        });
-        Automarken.Add(new Automarke()
-        {
-            AutomarkeId = 3,
-            Name = "Audi",
-            LogoUrl = "./img/automarken/Audi.png"
-        });
+        Automarken = _AutomatService.getAutomat().GetFavoritenauswahl().GetAllAutomarken();
         
-        
-        this.Karosserieformen = new List<Karosserieform>();
-        
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 1,
-            Name = "SUV",
-            IconUrl = "./img/karosserieformen/suv.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 2,
-            Name = "Kleinwagen",
-            IconUrl = "./img/karosserieformen/kleinwagen.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 3,
-            Name = "Limousine",
-            IconUrl = "./img/karosserieformen/limousine.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 4,
-            Name = "Kombi",
-            IconUrl = "./img/karosserieformen/kombi.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 5,
-            Name = "Coupe",
-            IconUrl = "./img/karosserieformen/coupe.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 6,
-            Name = "Cabriolet",
-            IconUrl = "./img/karosserieformen/cabrio.png"
-        });
-
-        Karosserieformen.Add(new Karosserieform()
-        {
-            KarosserieformId = 7,
-            Name = "Van",
-            IconUrl = "./img/karosserieformen/van.png"
-        });
+        Karosserieformen = _AutomatService.getAutomat().GetFavoritenauswahl().GetAllKarosserieformen();
     }
 }
 
