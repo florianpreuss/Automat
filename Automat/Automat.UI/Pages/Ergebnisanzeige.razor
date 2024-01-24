@@ -10,12 +10,12 @@
     <div class="col-5 text-center">
         <h3 class="mb-2">Feedback</h3>
                 <label for="feedbackslider" class="form-label text-white text-start">Gefällt dir der Aut-O-Mat?</label>
-        <input type="range" class="form-range" min="0" max="6" step="1" id="feedbackslider">
+        <input type="range" class="form-range" min="0" max="6" step="1" id="feedbackslider" @bind="feedback">
         <div class="d-flex justify-content-between text-white">
             <span>Sehr unzufrieden</span>
             <span>Sehr zufrieden</span>
         </div>
-        <button class="btn mt-2" style="color: white; background-color: #003d66; border-color: #003d66;">Absenden</button>
+        <button disabled="@disabled" class="btn mt-2" style="color: white; background-color: #003d66; border-color: #003d66;" onclick="@FeedbackSenden">@btnText</button>
     </div>
 </div>
 <div class="row align-items-center">
@@ -37,7 +37,9 @@
 @code {
     private IDictionary<Automodell, int>? Automodelle { get; set; }
 
-    private bool initiated = false;
+    private int feedback = 3;
+    private bool disabled = false;
+    private string btnText = "Absenden";
     
     protected override void OnInitialized()
     {
@@ -50,5 +52,15 @@
         _AutomatService.getAutomat().GetFragenkatalog().DatenAnPräferenzrechner();
         _AutomatService.getAutomat().GetFavoritenauswahl().DatenAnPräferenzrechner();
         Automodelle = _AutomatService.getAutomat().GetErgebnisanzeige().GetErgebnisAutos(6);
+    }
+
+    public void FeedbackSenden()
+    {
+        btnText = "Gesendet";
+        disabled = true;
+        _AutomatService.getAutomat().GetErgebnisanzeige().SendFeedback(new Feedback()
+        {
+            Bewertung = feedback
+        });
     }
 }
