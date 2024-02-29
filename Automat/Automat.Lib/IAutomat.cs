@@ -1,16 +1,16 @@
-using Automat.Lib.Autovergleich;
+using Automat.Lib.Comparison;
 using Automat.Lib.Database;
-using Automat.Lib.Präferenzrechner;
+using Automat.Lib.Calculator;
 
 namespace Automat.Lib;
 
 public interface IAutomat
 {
-    public IFragenkatalog GetFragenkatalog();
-    public IFavoritenauswahl GetFavoritenauswahl();
-    public IErgebnisanzeige GetErgebnisanzeige();
-    public IPräferenzrechner GetPräferenzrechner();
-    public IAutoRepository GetAutoRepository();
-    public IBewertungRepository GetBewertungRepository();
+    public IQuestionDisplay GetQuestionDisplay();
+    public IFavoritesDisplay GetFavoritesDisplay();
+    public IResultDisplay GetResultDisplay();
+    public IPreferenceCalculator GetPreferenceCalculator();
+    public ICarRepository GetCarRepository();
+    public IRatingRepository GetRatingRepository();
     public IFeedbackRepository GetFeedbackRepository();
 }

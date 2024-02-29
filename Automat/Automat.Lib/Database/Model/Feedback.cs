@@ -13,8 +13,8 @@ public partial class Feedback
     public int FeedbackId { get; set; }
 
     [Column(TypeName = "integer(2)")]
-    public int? Bewertung { get; set; }
+    public int? Rating { get; set; }
 
     [Column(TypeName = "datetime")]
-    public byte[]? Zeitpunkt { get; set; }
+    public byte[]? Timestamp { get; set; }
 }

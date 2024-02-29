@@ -1,0 +1,44 @@
+@page "/Details/{ModelId:int}/"
+@using Automat.Lib.Database.Model
+@using Automat.UI.Services
+@inject AutomatService _AutomatService
+
+@if (CurrentModel is null)
+{
+    <p>Could not find Model with id @ModelId.</p>
+}
+else
+{
+    <div class="row">
+        <div class="col-5 text-white">
+            <h1>@CurrentModel.Name</h1>
+            <p>
+                <b>Brand:</b> @CurrentModel.Brand.Name<br/>
+                <b>Body style:</b> @CurrentModel.BodyStyle.Name<br/>
+                <b>Price:</b> @CurrentModel.Price €<br/>
+                <b>Fuel type:</b> @CurrentModel.FuelType<br/>
+                <b>Horsepower:</b> @CurrentModel.Horsepower HP<br/>
+                <b>Model year:</b> @CurrentModel.ModelYear<br/>
+                <b>Seats:</b> @CurrentModel.Seats<br/>
+            </p>
+            <a href="/Result"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Back</button></a>
+        </div>
+        <div class="col-7">
+            <img src="@CurrentModel.ThumbnailUrl" style="width: 100%; border-radius: 10px" alt="@CurrentModel.Brand"/>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int ModelId { get; set; }
+
+    private Model? CurrentModel { get; set; }
+
+    private IDictionary<int, Model>? Models { get; set; }
+    
+    protected override void OnInitialized()
+    {
+        CurrentModel = _AutomatService.getAutomat().GetCarRepository().FindById(ModelId);
+    }
+}

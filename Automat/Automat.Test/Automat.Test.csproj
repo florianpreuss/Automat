@@ -21,6 +21,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Update="AutomatDbSqlite-test-2.db">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
       <None Update="AutomatDbSqlite-test.db">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>

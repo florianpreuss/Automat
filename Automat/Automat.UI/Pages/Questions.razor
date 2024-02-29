@@ -1,0 +1,34 @@
+@page "/Questions"
+@using Automat.Lib.Database.Model
+@using Automat.UI.Services
+
+@inject AutomatService _AutomatService
+
+
+<div class="row mb-2">
+        <h3>Answer or skip questions</h3>
+    </div>
+    @foreach (var ratingCategory in RatingCategories)
+    {
+            <Question CurrentRatingCategory="ratingCategory" />
+    }
+    <div class="row">
+        <div class="col-6 justify-content-start">
+            <a href="@BackUrl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Back</button></a>
+        </div>
+        <div class="col-6 justify-content-end text-end">
+            <a href="/Result"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Result</button></a>
+            <a href="/Favorites"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66; margin-left: 10px">Favorites</button></a>
+            </div>
+    </div>
+
+@code {
+    private ICollection<RatingCategory>? RatingCategories { get; set; }
+
+    [Parameter] public string BackUrl { get; set; } = "/";
+    
+    protected override void OnInitialized()
+    {
+        RatingCategories = _AutomatService.getAutomat().GetQuestionDisplay().GetAllRatingCategories();
+    }
+}

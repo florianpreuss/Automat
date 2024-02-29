@@ -1,58 +1,58 @@
-using Automat.Lib.Autovergleich;
+using Automat.Lib.Comparison;
 using Automat.Lib.Database;
-using Automat.Lib.Präferenzrechner;
+using Automat.Lib.Calculator;
 
 namespace Automat.Lib;
 
 public class DefaultAutomat : IAutomat
 {
-    private IFragenkatalog Fragenkatalog;
-    private IFavoritenauswahl Favoritenauswahl;
-    private IErgebnisanzeige Ergebnisanzeige;
-    private IPräferenzrechner Präferenzrechner;
-    private IAutoRepository AutoRepository;
-    private IBewertungRepository BewertungRepository;
+    private IQuestionDisplay QuestionDisplay;
+    private IFavoritesDisplay FavoritesDisplay;
+    private IResultDisplay ResultDisplay;
+    private IPreferenceCalculator PreferenceCalculator;
+    private ICarRepository CarRepository;
+    private IRatingRepository RatingRepository;
     private IFeedbackRepository FeedbackRepository;
     
-    public DefaultAutomat(DatabaseFactory databaseFactory, PräferenzrechnerFactory präferenzrechnerFactory, AutovergleichFactory autovergleichFactory)
+    public DefaultAutomat(DatabaseFactory databaseFactory, PreferenceCalculatorFactory preferenceCalculatorFactory, ComparisonFactory comparisonFactory)
     {
-        Fragenkatalog = autovergleichFactory.GetFragenkatalog();
-        Favoritenauswahl = autovergleichFactory.GetFavoritenauswahl();
-        Ergebnisanzeige = autovergleichFactory.GetErgebnisanzeige();
-        Präferenzrechner = präferenzrechnerFactory.GetPräferenzrechner();
-        AutoRepository = databaseFactory.GetAutoRepository();
-        BewertungRepository = databaseFactory.GetBewertungRepository();
+        QuestionDisplay = comparisonFactory.GetQuestionDisplay();
+        FavoritesDisplay = comparisonFactory.GetFavoritesDisplay();
+        ResultDisplay = comparisonFactory.GetResultDisplay();
+        PreferenceCalculator = preferenceCalculatorFactory.GetPreferenceCalculator();
+        CarRepository = databaseFactory.GetCarRepository();
+        RatingRepository = databaseFactory.GetRatingRepository();
         FeedbackRepository = databaseFactory.GetFeedbackRepository();
     }
     
-    public IFragenkatalog GetFragenkatalog()
+    public IQuestionDisplay GetQuestionDisplay()
     {
-        return Fragenkatalog;
+        return QuestionDisplay;
     }
 
-    public IFavoritenauswahl GetFavoritenauswahl()
+    public IFavoritesDisplay GetFavoritesDisplay()
     {
-        return Favoritenauswahl;
+        return FavoritesDisplay;
     }
 
-    public IErgebnisanzeige GetErgebnisanzeige()
+    public IResultDisplay GetResultDisplay()
     {
-        return Ergebnisanzeige;
+        return ResultDisplay;
     }
 
-    public IPräferenzrechner GetPräferenzrechner()
+    public IPreferenceCalculator GetPreferenceCalculator()
     {
-        return Präferenzrechner;
+        return PreferenceCalculator;
     }
 
-    public IAutoRepository GetAutoRepository()
+    public ICarRepository GetCarRepository()
     {
-        return AutoRepository;
+        return CarRepository;
     }
 
-    public IBewertungRepository GetBewertungRepository()
+    public IRatingRepository GetRatingRepository()
     {
-        return BewertungRepository;
+        return RatingRepository;
     }
 
     public IFeedbackRepository GetFeedbackRepository()

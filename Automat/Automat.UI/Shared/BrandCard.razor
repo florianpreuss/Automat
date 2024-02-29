@@ -1,0 +1,48 @@
+@using Automat.Lib.Database.Model
+@using Automat.UI.Services
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject AutomatService _AutomatService
+
+<div class="col-3">
+    <div class="card text-center justify-content-center p-3">
+        <img src="@CurrentBrand.IconUrl" class="card-img-top center-block mb-3" style="width: 50%" alt="...">
+        <div class="card-body p-0">
+            <h5 class="card-title mb-3">@CurrentBrand.Name</h5>
+            <input type="checkbox" class="btn-check" id="@CurrentBrand.BrandId-automarke" autocomplete="off" @bind="Selected" @onclick="Toggle">
+            <label class="btn btn-outline-secondary" for="@CurrentBrand.BrandId-automarke">@ButtonText</label><br>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]  
+    public Brand CurrentBrand { get; set; }
+
+    private string ButtonText = "Select";
+    private bool Selected = false;
+
+    protected override void OnInitialized()
+    {
+        if (_AutomatService.getAutomat().GetFavoritesDisplay().GetUserBrands().Contains(CurrentBrand))
+        {
+            Selected = true;
+            ButtonText = "Selected";
+        }
+    }
+    
+    private void Toggle()
+    {
+        Selected = !Selected;
+        if (Selected)
+        {
+            _AutomatService.getAutomat().GetFavoritesDisplay().AddUserBrand(CurrentBrand);
+            ButtonText = "Selected";
+        }
+        else
+        {
+            _AutomatService.getAutomat().GetFavoritesDisplay().RemoveUserBrand(CurrentBrand);
+            ButtonText = "Select";
+        }
+    }
+}

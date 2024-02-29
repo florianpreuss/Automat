@@ -1,7 +1,8 @@
 using Automat.Lib;
 using Automat.Lib.Autovergleich;
+using Automat.Lib.Calculator;
+using Automat.Lib.Comparison;
 using Automat.Lib.Database;
-using Automat.Lib.Präferenzrechner;
 
 namespace Automat.UI.Services;
 
@@ -11,11 +12,11 @@ public class AutomatService
     
     public AutomatService()
     {
-        Console.WriteLine("Neuer Service erstellt");
+        Console.WriteLine("Created new Service");
         DatabaseFactory df = new DatabaseFactory("AutomatDbSqlite.db");
-        PräferenzrechnerFactory pf = new PräferenzrechnerFactory(df.GetBewertungRepository());
-        AutovergleichFactory af = new AutovergleichFactory(df.GetAutoRepository(), df.GetBewertungRepository(),
-            df.GetFeedbackRepository(), pf.GetPräferenzrechner());
+        PreferenceCalculatorFactory pf = new PreferenceCalculatorFactory(df.GetRatingRepository());
+        ComparisonFactory af = new ComparisonFactory(df.GetCarRepository(), df.GetRatingRepository(),
+            df.GetFeedbackRepository(), pf.GetPreferenceCalculator());
         Automat = new DefaultAutomat(df, pf, af);
     }
 

@@ -8,8 +8,8 @@ namespace Automat.Lib.Database;
 public class DatabaseFactory
 {
     private AutomatDbContext AutomatDbContext;
-    private IAutoRepository AutoRepository;
-    private IBewertungRepository BewertungRepository;
+    private ICarRepository CarRepository;
+    private IRatingRepository RatingRepository;
     private IFeedbackRepository FeedbackRepository;
     
     public DatabaseFactory(string filename)
@@ -31,19 +31,19 @@ public class DatabaseFactory
     private void Initialize(DbContextOptions<AutomatDbContext> options)
     {
         AutomatDbContext = new AutomatDbContext(options);
-        AutoRepository = new AutoRepositoryImpl(AutomatDbContext);
-        BewertungRepository = new BewertungRepositoryImpl(AutomatDbContext);
+        CarRepository = new CarRepositoryImpl(AutomatDbContext);
+        RatingRepository = new RatingRepositoryImpl(AutomatDbContext);
         FeedbackRepository = new FeedbackRepositoryImpl(AutomatDbContext);
     }
     
-    public IAutoRepository GetAutoRepository()
+    public ICarRepository GetCarRepository()
     {
-        return AutoRepository;
+        return CarRepository;
     }
 
-    public IBewertungRepository GetBewertungRepository()
+    public IRatingRepository GetRatingRepository()
     {
-        return BewertungRepository;
+        return RatingRepository;
     }
 
     public IFeedbackRepository GetFeedbackRepository()

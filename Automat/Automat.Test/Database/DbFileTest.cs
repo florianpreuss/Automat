@@ -24,12 +24,12 @@ public class DbFileTest
     {
         using (var context = new AutomatDbContext(_options))
         {
-            Assert.AreEqual(context.Automarken.Find(1)?.Name, "BMW");
-            Assert.AreEqual(context.Automarken.Find(2)?.Name, "Volkswagen");
-            Assert.AreEqual(context.Automarken.Find(3)?.Name, "Audi");
-            Assert.AreEqual(context.Autobewertungen.Find(1)?.AutomodellId, 1);
-            Autobewertung autobewertung = context.Autobewertungen.Include(abw => abw.Automodell).First(abw => abw.AutobewertungId == 10);
-            Assert.AreEqual(autobewertung.Automodell.Name, "BMW 318i Touring");
+            Assert.AreEqual(context.Brands.Find(1)?.Name, "BMW");
+            Assert.AreEqual(context.Brands.Find(2)?.Name, "Volkswagen");
+            Assert.AreEqual(context.Brands.Find(3)?.Name, "Audi");
+            Assert.AreEqual(context.ModelRatings.Find(1)?.ModelId, 1);
+            ModelRating modelRating = context.ModelRatings.Include(abw => abw.Model).First(abw => abw.ModelRatingId == 10);
+            Assert.AreEqual(modelRating.Model.Name, "BMW 318i Touring");
         }
     }
 }

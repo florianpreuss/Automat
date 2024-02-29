@@ -1,0 +1,46 @@
+@using Lib.Database.Model
+@using Automat.UI.Services
+@using Automat.Lib.Autovergleich.Model
+@inject AutomatService _AutomatService
+<div class="row mx-1 my-4 p-3 bordered-row align-items-center">
+    <div class="col-9">
+        <label for="@CurrentRatingCategory" class="form-label"><b>@CurrentRatingCategory.Name</b> - @CurrentRatingCategory.Question</label>
+        <input disabled="@IsDisabled" type="range" class="form-range" min="0" max="10" step="1" id="@CurrentRatingCategory.RatingCategoryId" @bind="_value" @bind:after="UpdateServiceState">
+        <div class="d-flex justify-content-between text-white">
+            <span>@CurrentRatingCategory.TagMin</span>
+            <span>@CurrentRatingCategory.TagMax</span>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-check form-switch">
+            <input class="form-check-input" @bind="IsDisabled" @bind:after="UpdateServiceState" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Skip</label>
+        </div>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter]  
+    public RatingCategory CurrentRatingCategory { get; set; }
+    
+    private int _value;
+    private bool IsDisabled { get; set; }
+    
+    protected override void OnInitialized()
+    {
+        var state = _AutomatService.getAutomat().GetQuestionDisplay().GetQuestionState(CurrentRatingCategory);
+        _value = state?.Value ?? 5;
+        IsDisabled = state?.Disabled ?? false;
+
+    }
+
+    private void UpdateServiceState()
+    {
+        var state = _AutomatService.getAutomat().GetQuestionDisplay().GetQuestionState(CurrentRatingCategory) ?? new QuestionState();
+        state.Value = _value;
+        state.Disabled = IsDisabled;
+        _AutomatService.getAutomat().GetQuestionDisplay().UpdateQuestionState(CurrentRatingCategory, state);
+    }
+
+}

@@ -1,0 +1,42 @@
+@page "/Favorites"
+@using Automat.Lib.Database.Model
+@using Automat.UI.Services
+@inject AutomatService _AutomatService
+<div class="row mb-5">
+    <h3 class="mb-3">Select your favorite brands</h3>
+    @foreach (var brand in Brands)
+    {
+        <BrandCard CurrentBrand="brand"/>
+    }
+</div>
+<div class="row mb-4">
+    <h3 class="mb-3">Select your favorite body styles</h3>
+    @foreach (var bodyStyle in BodyStyles)
+    {
+        <BodyStyleCard CurrentBodyStyle="bodyStyle"/>
+    }
+</div>
+<div class="row">
+    <div class="col-6 justify-content-start">
+        <a href="@BackUrl"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Back</button></a>
+    </div>
+    <div class="col-6 justify-content-end text-end">
+        <a href="/Result"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Result</button></a>
+    </div>
+</div>
+
+@code {
+    private ICollection<Brand>? Brands { get; set; }
+    private ICollection<BodyStyle>? BodyStyles { get; set; }
+
+    
+    [Parameter] public string BackUrl { get; set; } = "/Questions";
+
+    protected override void OnInitialized()
+    {
+        Brands = _AutomatService.getAutomat().GetFavoritesDisplay().GetAllBrands();
+        
+        BodyStyles = _AutomatService.getAutomat().GetFavoritesDisplay().GetAllBodyStyles();
+    }
+}
+

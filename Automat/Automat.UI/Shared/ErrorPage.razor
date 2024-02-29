@@ -1,0 +1,14 @@
+@inject NavigationManager NavigationManager;
+<div class="container text-center justify-content-center p-5">
+    <h3 class="mb-3">Unfortunately an error occurred in the app. Open it again and try again.</h3>
+    <button class="btn btn-primary btn-lg" @onclick="HandleClick">Reload</button>
+</div>
+@code {
+    [Parameter] 
+    public Exception Exception { get; set; }
+    
+    private void HandleClick()
+    {
+        NavigationManager.NavigateTo("/", true);
+    }
+}

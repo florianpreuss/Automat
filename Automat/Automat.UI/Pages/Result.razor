@@ -1,0 +1,66 @@
+@page "/Result"
+@using Automat.Lib.Database.Model
+@using Automat.UI.Services
+@inject AutomatService _AutomatService;
+<div class="row align-items-center">
+    <div class="col-7 p-3">
+        <h1 style="outline: none!important;">Aut-O-Mat</h1>
+        <h2 class="mb-5">Rosenheim 2024</h2>
+    </div>
+    <div class="col-5 text-center">
+        <h3 class="mb-2">Feedback</h3>
+                <label for="feedbackslider" class="form-label text-white text-start">Did you like the Aut-O-Mat?</label>
+        <input type="range" class="form-range" min="0" max="6" step="1" id="feedbackslider" @bind="feedback">
+        <div class="d-flex justify-content-between text-white">
+            <span>Like</span>
+            <span>Dislike</span>
+        </div>
+        <button disabled="@disabled" class="btn mt-2" style="color: white; background-color: #003d66; border-color: #003d66;" onclick="@SendFeedback">@btnText</button>
+    </div>
+</div>
+<div class="row align-items-center">
+    <h3 class="mb-3">Your Result:</h3>
+    @foreach (var Model in Models)
+    {
+        <CarPreview CurrentModel="Model.Key" Rating="Model.Value"/>
+    }
+</div>
+<div class="row mt-3">
+    <div class="col-6 text-center">
+        <a href="/Questions"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66; margin-right: 10px">Questions</button></a>
+    </div>
+    <div class="col-6 text-center">
+        <a href="/Favorites"><button class="btn btn-lg" style="color: white; background-color: #003d66; border-color: #003d66;">Favorites</button></a>
+    </div>
+</div>
+
+@code {
+    private IDictionary<Model, int>? Models { get; set; }
+
+    private int feedback = 3;
+    private bool disabled = false;
+    private string btnText = "Submit";
+    
+    protected override void OnInitialized()
+    {
+        CalculateResult();
+    }
+
+    public void CalculateResult()
+    {
+        _AutomatService.getAutomat().GetPreferenceCalculator().ResetCalculator();
+        _AutomatService.getAutomat().GetQuestionDisplay().DataToPreferenceCalculator();
+        _AutomatService.getAutomat().GetFavoritesDisplay().DataToPreferenceCalculator();
+        Models = _AutomatService.getAutomat().GetResultDisplay().GetResultCars(6);
+    }
+
+    public void SendFeedback()
+    {
+        btnText = "Sent";
+        disabled = true;
+        _AutomatService.getAutomat().GetResultDisplay().SendFeedback(new Feedback()
+        {
+            Rating = feedback
+        });
+    }
+}

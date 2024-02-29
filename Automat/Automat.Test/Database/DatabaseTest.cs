@@ -11,8 +11,8 @@ public class DatabaseTest
 {
     private DbContextOptions<AutomatDbContext> _options;
     private AutomatDbContext AutomatDbContext;
-    private IAutoRepository AutoRepository;
-    private IBewertungRepository BewertungRepository;
+    private ICarRepository CarRepository;
+    private IRatingRepository RatingRepository;
     private IFeedbackRepository FeedbackRepository;
 
     public DatabaseTest()
@@ -29,93 +29,92 @@ public class DatabaseTest
     {
         var factory = new DatabaseFactory(_options);
         AutomatDbContext = factory.GetAutomatDbContext();
-        AutoRepository = factory.GetAutoRepository();
-        BewertungRepository = factory.GetBewertungRepository();
+        CarRepository = factory.GetCarRepository();
+        RatingRepository = factory.GetRatingRepository();
         FeedbackRepository = factory.GetFeedbackRepository();
         
         AutomatDbContext.Database.EnsureDeleted();
         AutomatDbContext.Database.EnsureCreated();
 
-        var MarkeBMW = new Automarke()
+        var BrandBMW = new Brand()
         {
-            AutomarkeId = 1,
+            BrandId = 1,
             Name = "BMW",
-            LogoUrl = "https://example.com/bmw_logo.png"
+            IconUrl = "https://example.com/bmw_logo.png"
         };
 
-        var MarkeVolkswagen = new Automarke()
+        var BrandVolkswagen = new Brand()
         {
-            AutomarkeId = 2,
+            BrandId = 2,
             Name = "Volkswagen",
-            LogoUrl = "https://example.com/bmw_logo.png"
+            IconUrl = "https://example.com/bmw_logo.png"
         };
 
-        var SUV = new Karosserieform()
+        var SUV = new BodyStyle()
         {
-            KarosserieformId = 1,
+            BodyStyleId = 1,
             Name = "SUV",
         };
-        var Kleinwagen = new Karosserieform()
+        var Compact = new BodyStyle()
         {
-            KarosserieformId = 2,
+            BodyStyleId = 2,
             Name = "Kleinwagen",
         };
-        var BMW118D = new Automodell()
+        var BMW118D = new Model()
         {
-            AutomodellId = 1,
-            AutomarkeId = 1,
-            KarosserieformId = 1,
+            ModelId = 1,
+            BrandId = 1,
+            BodyStyleId = 1,
             Name = "BMW 118d"
         };
-        var Personen = new Bewertungskategorie()
+        var PersonAmount = new RatingCategory()
         {
-            BewertungskategorieId = 1,
+            RatingCategoryId = 1,
             Name = "Personenanzahl",
-            Fragestellung = "Wie viele Personen möchten Sie befördern?",
+            Question = "Wie viele Personen möchten Sie befördern?",
             TagMin = "2",
             TagMax = "7",
-            Gewichtung = 1.0m
+            Weighting = 1.0m
         };
-        AutomatDbContext.Automarken.AddRange(MarkeBMW, MarkeVolkswagen);
-        AutomatDbContext.Karosserieformen.AddRange(SUV, Kleinwagen);
-        AutomatDbContext.Automodelle.AddRange(BMW118D);
-        AutomatDbContext.Bewertungskategorien.AddRange(Personen);
-        
-        AutomatDbContext.Autobewertungen.Add(new Autobewertung()
+        AutomatDbContext.Brands.AddRange(BrandBMW, BrandVolkswagen);
+        AutomatDbContext.BodyStyles.AddRange(SUV, Compact);
+        AutomatDbContext.Models.AddRange(BMW118D);
+        AutomatDbContext.RatingCategories.AddRange(PersonAmount);
+
+        AutomatDbContext.ModelRatings.Add(new ModelRating()
         {
-            AutobewertungId = 1,
-            BewertungskategorieId = 1,
-            AutomodellId = 1,
-            Bewertung = 0.6m
+            ModelRatingId = 1,
+            RatingCategoryId = 1,
+            ModelId = 1,
+            Rating = 0.6m
         });
         
         AutomatDbContext.SaveChanges();
-        Assert.AreEqual(AutomatDbContext.Automarken.Find(1)?.Name, "BMW");
-        Assert.AreEqual(AutomatDbContext.Automarken.Find(2)?.Name, "Volkswagen");
+        Assert.AreEqual(AutomatDbContext.Brands.Find(1)?.Name, "BMW");
+        Assert.AreEqual(AutomatDbContext.Brands.Find(2)?.Name, "Volkswagen");
     }
 
     [TestMethod]
     public void testRepositories()
     {
-        
-        var automarken = AutoRepository.GetAllAutomarken();
-        var karosserieformen = AutoRepository.GetAllKarosserieformen();
-        
-        Assert.AreEqual(automarken.Count, 2);
-        Assert.AreEqual(karosserieformen.Count, 2);
-        
-        Assert.AreEqual(BewertungRepository.GetBewertungskategorien().Count, 1);
-        Assert.AreEqual(BewertungRepository.GetRateableModels().Count, 1);
-        
+        var brands = CarRepository.GetAllBrands();
+        var bodyStyles = CarRepository.GetAllBodyStyles();
+
+        Assert.AreEqual(brands.Count, 2);
+        Assert.AreEqual(bodyStyles.Count, 2);
+
+        Assert.AreEqual(RatingRepository.GetRatingCategories().Count, 1);
+        Assert.AreEqual(RatingRepository.GetRateableModels().Count, 1);
+
         FeedbackRepository.AddFeedback(new Feedback()
         {
             FeedbackId = 1,
-            Bewertung = 5
+            Rating = 5
         });
         FeedbackRepository.AddFeedback(new Feedback()
         {
             FeedbackId = 2,
-            Bewertung = 5
+            Rating = 5
         });
 
         Assert.AreEqual(AutomatDbContext.Feedbacks.ToList().Count, 2);

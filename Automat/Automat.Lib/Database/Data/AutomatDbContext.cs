@@ -16,32 +16,32 @@ public partial class AutomatDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Autobewertung> Autobewertungen { get; set; }
+    public virtual DbSet<ModelRating> ModelRatings { get; set; }
 
-    public virtual DbSet<Automarke> Automarken { get; set; }
+    public virtual DbSet<Brand> Brands { get; set; }
 
-    public virtual DbSet<Automodell> Automodelle { get; set; }
+    public virtual DbSet<Model.Model> Models { get; set; }
 
-    public virtual DbSet<Bewertungskategorie> Bewertungskategorien { get; set; }
+    public virtual DbSet<RatingCategory> RatingCategories { get; set; }
 
     public virtual DbSet<Feedback> Feedbacks { get; set; }
 
-    public virtual DbSet<Karosserieform> Karosserieformen { get; set; }
+    public virtual DbSet<BodyStyle> BodyStyles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Autobewertung>(entity =>
+        modelBuilder.Entity<ModelRating>(entity =>
         {
-            entity.HasOne(d => d.Automodell).WithMany(p => p.Autobewertungen).OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.Model).WithMany(p => p.ModelRatings).OnDelete(DeleteBehavior.ClientSetNull);
 
-            entity.HasOne(d => d.Bewertungskategorie).WithMany(p => p.Autobewertungen).OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.RatingCategory).WithMany(p => p.ModelRatings).OnDelete(DeleteBehavior.ClientSetNull);
         });
 
-        modelBuilder.Entity<Automodell>(entity =>
+        modelBuilder.Entity<Model.Model>(entity =>
         {
-            entity.HasOne(d => d.Automarke).WithMany(p => p.Automodelle).OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.Brand).WithMany(p => p.Models).OnDelete(DeleteBehavior.ClientSetNull);
 
-            entity.HasOne(d => d.Karosserieform).WithMany(p => p.Automodelle).OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.BodyStyle).WithMany(p => p.Models).OnDelete(DeleteBehavior.ClientSetNull);
         });
 
         OnModelCreatingPartial(modelBuilder);
